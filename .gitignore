@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# My receipt photos (private)
+data/receipts/
+
+# Secret keys
+.env
