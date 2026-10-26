@@ -1,4 +1,4 @@
-# recipe-split
+# receipt-split
 
 A mobile-friendly web app for splitting a restaurant receipt. Upload a photo,
 add everyone's names, tap who ate what, choose a tip, and see what each person
