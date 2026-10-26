@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Receipt Splitter</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>Receipt Splitter</h1>
+
+    <section id="upload-section" class="card">
+      <h2>1. Upload receipt</h2>
+      <form id="upload-form">
+        <input type="file" id="photo" accept="image/*" required>
+        <button type="submit">Parse receipt</button>
+      </form>
+      <p id="upload-error" class="error" hidden></p>
+    </section>
+
+    <section id="receipt-section" class="card" hidden>
+      <h2>Receipt</h2>
+      <img id="preview" alt="Receipt photo">
+      <ul id="item-list" class="item-list"></ul>
+      <div class="summary-row"><span>Subtotal</span><span id="subtotal"></span></div>
+      <div class="summary-row"><span>Tax</span><span id="tax"></span></div>
+    </section>
+
+    <section id="people-section" class="card" hidden>
+      <h2>2. Who's splitting?</h2>
+      <form id="person-form" class="inline-form">
+        <input type="text" id="person-name" placeholder="Name" autocomplete="off" required>
+        <button type="submit">Add</button>
+      </form>
+      <p id="person-error" class="error" hidden></p>
+      <ul id="people-list" class="chips"></ul>
+    </section>
+
+    <section id="claims-section" class="card" hidden>
+      <h2>3. Who ate what?</h2>
+      <p class="hint">Tap everyone who shared each item.</p>
+      <div id="claims"></div>
+    </section>
+
+    <section id="tip-section" class="card" hidden>
+      <h2>4. Tip</h2>
+      <label class="inline-form">
+        <input type="number" id="tip-pct" value="20" min="0" step="0.5" inputmode="decimal">
+        <span>% of pre-tax subtotal</span>
+      </label>
+      <div class="summary-row"><span>Tip</span><span id="tip-amount"></span></div>
+      <div class="summary-row total"><span>Receipt total</span><span id="grand-total"></span></div>
+      <button id="calculate" class="primary">Calculate</button>
+      <p id="split-error" class="error" hidden></p>
+    </section>
+
+    <section id="results-section" class="card" hidden>
+      <h2>Each person owes</h2>
+      <ul id="results" class="item-list"></ul>
+      <p id="check"></p>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
