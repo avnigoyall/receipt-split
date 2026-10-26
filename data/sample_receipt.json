@@ -1,0 +1,11 @@
+{
+  "items": [
+    {"id": "1", "name": "Margherita Pizza", "price_cents": 1600},
+    {"id": "2", "name": "Caesar Salad", "price_cents": 1150},
+    {"id": "3", "name": "IPA Draft", "price_cents": 800},
+    {"id": "4", "name": "IPA Draft", "price_cents": 800},
+    {"id": "5", "name": "Spaghetti Carbonara", "price_cents": 1895},
+    {"id": "6", "name": "Tiramisu", "price_cents": 975}
+  ],
+  "tax_cents": 645
+}
