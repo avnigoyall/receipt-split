@@ -19,6 +19,33 @@ Then open http://127.0.0.1:8000. To use it from a phone on the same Wi-Fi,
 start the server with `uvicorn app.main:app --host 0.0.0.0` and visit
 `http://<your-computer's-IP>:8000`.
 
+## Running the React frontend
+
+The new frontend lives in `frontend/` (React + Vite + Tailwind CSS). It
+needs Node.js 18+ and the backend running at the same time.
+
+In one terminal, start the backend:
+
+```bash
+source .venv/bin/activate
+uvicorn app.main:app --reload
+```
+
+In a second terminal, start the frontend:
+
+```bash
+cd frontend
+npm install   # first time only
+npm run dev
+```
+
+Then open http://localhost:5173. Vite reloads the page as you edit files in
+`frontend/src/`. The backend only accepts browser requests from
+`http://localhost:5173` (CORS), so use that address, not `127.0.0.1:5173`.
+
+The original plain HTML page is still served by the backend at
+http://127.0.0.1:8000.
+
 ## How it works
 
 - `POST /parse` takes an uploaded image and returns

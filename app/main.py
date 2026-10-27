@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -11,6 +12,15 @@ from splitter.split import split
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 
 app = FastAPI(title="Receipt Splitter")
+
+# Browsers block a page on one origin (the Vite dev server, port 5173) from
+# calling an API on another (port 8000) unless the API allows it via CORS.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # --- Pydantic models ---
